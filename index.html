@@ -35,12 +35,20 @@
                 }
 
                 let select = prompt('Choose Your Todos: ')
-                select--
-                todos = todos.filter(e => e !== todos[select])
-                count--
-                alert('deleted successfully!')
-                menu()
+                
+                if(select > count || select < 0){
+                    alert('Wrong Number Selected')
+                    menu()
+                    
+                } else {
+                    select--
+                    todos = todos.filter(e => e !== todos[select])
+                    count--
+                    alert('deleted successfully!')
+                    menu()
 
+                }
+                
             } else if(choice == 4){
                
             } else {
