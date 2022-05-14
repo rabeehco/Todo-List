@@ -10,17 +10,48 @@
     <h3>Check console for output</h3>
 
     <script>
-        const todos = [];
+        var todos = [];
+        var count = 0;
         function menu(){
-            var choice = prompt(`1) New Todo\n2) List All Todos\n3) Remove a Todo\n4) Quit`)
 
-            switch(choice){
-                case 1:
-                    prompt(`Enter Your New Todo`)
+            var choice = prompt(`1) New Todo\n2) List All Todos\n3) Remove a Todo\n4) Quit`)
+            
+            if(choice == 1){
+                todos[count] = prompt('Enter Your New Todo')
+                count++
+                alert('Added Successfully')
+
+                menu()
+            } else if(choice == 2){
+                console.log('Todos:')
+                for(var i=0; i<count; i++){
+                    console.log(i + 1 + ') ' +todos[i])
+                }
+                menu()
+            } else if(choice == 3){
+                console.log('List of Todos Below!')
+                for(var i=0; i<count; i++){
+                    console.log(i+ 1 + ') ' +todos[i])
+                }
+
+                let select = prompt('Choose Your Todos: ')
+                select--
+                todos = todos.filter(e => e !== todos[select])
+                count--
+                alert('deleted successfully!')
+                menu()
+
+            } else if(choice == 4){
+               
+            } else {
+                
             }
+            
         }
 
         menu()
+
+    
     </script>
 </body>
 </html>
